@@ -71,7 +71,9 @@ public class Crypt {
 		byte[] encrypted = null;
 		try {
 			// encrypted = encryptCipher.doFinal(stringBytes);
+			if(stringBytes!=null){
 			encrypted = encryptCipher.doFinal(stringBytes);
+			}
 		} catch (IllegalBlockSizeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -79,7 +81,10 @@ public class Crypt {
 			// TODO Auto-generated catch block
 			return "Wrong Key!";
 		}
-		String cipherText = new String(encrypted);
+		String cipherText = null;
+		if(encrypted!=null){
+		cipherText = new String(encrypted);
+		}
 		// BigInteger cipherText = new BigInteger(encrypted);
 
 		return cipherText;
@@ -123,7 +128,9 @@ public class Crypt {
 		byte[] decrypted = null;
 
 		try {
+			if(stringBytes!=null){
 			decrypted = decryptCipher.doFinal(stringBytes);
+			}
 		} catch (IllegalBlockSizeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -131,7 +138,10 @@ public class Crypt {
 			// TODO Auto-generated catch block
 			return "Wrong Key!";
 		}
-		String plainText = new String(decrypted);
+		String plainText = null;
+		if(decrypted!= null){
+		 plainText = new String(decrypted);
+		}
 		// BigInteger plainText = new BigInteger(decrypted);
 
 		return plainText;
